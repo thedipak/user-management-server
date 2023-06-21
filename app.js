@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 require('dotenv').config();
-const port = process.env.PORT ;
+const port = process.env.PORT || 5000 ;
 const { MongoClient } = require('mongodb');
 
 MongoClient.connect(process.env.USER_DB_URI)
@@ -13,7 +13,7 @@ MongoClient.connect(process.env.USER_DB_URI)
         app.use(express.json());
 
         app.get("/", (req, res) => {
-            res.send("WELCOME HOME!")
+            res.send("WELCOME HOME 2!")
         });
 
         app.get("/getUser", (req, res) => {
